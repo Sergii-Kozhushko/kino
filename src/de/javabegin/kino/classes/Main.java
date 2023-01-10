@@ -13,9 +13,16 @@ public class Main {
 
         TicketManager ticketManager = new TicketManager();
         IMovie movie1 = new Movie("Человек-Паук-12", new GregorianCalendar(2023, Calendar.JANUARY, 23, 18, 0), 20);
-        IMovie movie2 = new Movie("Матрица", new GregorianCalendar(2023, Calendar.JANUARY, 23, 20, 0), 30);
+        IMovie movie2 = new Movie("Человек-Паук-12", new GregorianCalendar(2023, Calendar.JANUARY, 21, 16, 0), 20);
+        IMovie movie3 = new Movie("Матрица", new GregorianCalendar(2023, Calendar.JANUARY, 23, 20, 0), 30);
+        IMovie movie4 = new Movie("Матрица", new GregorianCalendar(2023, Calendar.JANUARY, 23, 10, 0), 25);
 
-        System.out.println(movie1.getDate().getTime());
+//        MovieList movieList = new MovieList();
+//        movieList.addMovie(movie1);
+//        movieList.addMovie(movie2);
+//        movieList.addMovie(movie3);
+//        movieList.addMovie(movie4);
+        //System.out.println(movie1.getDate().getTime());
 
         ticketManager.buyTicket(user1, movie1);
         ticketManager.buyTicket(user1, movie2);

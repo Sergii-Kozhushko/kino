@@ -12,10 +12,24 @@ import de.javabegin.kino.interfaces.IUser;
 
 import java.util.ArrayList;
 
+/** Класс отвечает за сущность "покупатель билета в кино"
+ * @author Kozhushko Sergii
+ * @version 1.0
+ * Класс реализует интерфейс IUser -> разделение абстракция-реализация
+ * Соответствует принципам SOLID:
+ * 1. Single Responsibility Principle: класс работает только с сущностиями, относящимися к покупателю: имя, деньги в кошельке, список билетов пользователя
+ * 2. Open Closed Principle: соответствует не на 100%. Возможно лучший вариант: сделать класс User (name, money) и от него наследовать UserKino(+ticketlist)
+ * 5. Dependency Inversion Principle (Принцип инверсии зависимостей): класс зависит от интрефейса ITicket, а не от реализации Ticket
+ * GRASP:
+ * Polymorphism - поля имеют общий интерфейсыный тип, список билетов
+ */
 //  уровень реализации
 public class User implements IUser {
+   /** поле имя покупателя*/
    private String name;
+   /** поле сумма денег у покупателя */
    private int money = 0;
+   /** список билекто, которые купил покупатель */
    private ArrayList<ITicket> ticketList = new ArrayList<>();
 
    public User(String name) {
@@ -25,6 +39,11 @@ public class User implements IUser {
    public User() {
    }
 
+   /**
+    * Конструктор с имененм и начальной суммой
+    * @param name - имя покупателя
+    * @param money - начальная сумма в кошельке
+    */
    public User(String name, int money) {
       this.name = name;
       this.money = money;
@@ -39,6 +58,11 @@ public class User implements IUser {
    public int getMoney() {
       return money;
    }
+
+   /**
+    * Метод-сеттер для установки количества денег у покупателя
+    * @param money
+    */
    @Override
    public void setMoney(int money) {
       this.money = money;
@@ -49,11 +73,14 @@ public class User implements IUser {
       return ticketList;
    }
 
+   /**
+    * Метод распечатывает список билетов у покупателя
+    */
    @Override
    public void printTickets() {
       System.out.println("Покупатель <" + name + ">");
       System.out.println("Билеты:");
-      int i = 1;
+      int i = 1; // нумерация билетов
       for (ITicket ticket: ticketList){
          if (ticket.getMovie() != null)
             System.out.println(i + ". " + ticket.getMovie().getName() + " : " + ticket.getMovie().getDate().getTime() + " : " + ticket.getQRCode());
