@@ -5,16 +5,17 @@
  * Date of creation: 09-Jan-2023 19:59
  */
 
-package de.javabegin.kino.classes;
+package de.javabegin.kino.impl;
 
-import de.javabegin.kino.interfaces.IMovie;
+
+import de.javabegin.kino.interfaces.ISeans;
 import de.javabegin.kino.interfaces.ITicket;
 
 import java.util.UUID;
 
 /** Класс отвечает за сущность "билет в кино"
  * @author Kozhushko Sergii
- * @version 1.0
+ * @version 1.1
  * Класс реализует интерфейс ITicket -> разделение абстракция-реализация
  * Соответствует принципам SOLID:
  * 1. Single Responsibility Principle: класс не имеет бизнес-методов и реализует функции работы с ью-ар кодом и ценой. Ничего не связанного с билетом или пограничного
@@ -22,33 +23,23 @@ import java.util.UUID;
  * 5. Dependency Inversion Principle (Принцип инверсии зависимостей): класс зависит от интрефейса IMovie, а не от реализации Movie
 */
 public class Ticket implements ITicket {
-    /** Поле цена */
-    private int price;
+
     /** поле QR-код, генерируется при создании каждого объекта-билета */
-
-    private String QRCode = UUID.randomUUID().toString();
+    private final String QRCode = UUID.randomUUID().toString();
     /** поле фильм*/
-    private IMovie movie;
-
-    /**
-     * Дефолтный конструктор
-     *
-     */
-    public Ticket() {
-
-    }
+    private ISeans seans;
 
     /**
      *
-     * @param movie - на какой фильм этот билет
+     * @param seans - на какой сеанс этот билет
      */
-    public Ticket(IMovie movie) {
-        this.movie = movie;
+    public Ticket(ISeans seans) {
+        this.seans = seans ;
     }
 
     /**
      * Метод получения кью-ар кода билета
-     * @return возвращает кь-ар код строкой
+     * @return возвращает кью-ар код строкой
      */
     @Override
     public String getQRCode() {
@@ -57,24 +48,13 @@ public class Ticket implements ITicket {
 
     /**
      * Метод получения фильм билета
-     * @return
+     * @return Сеанс
      */
     @Override
-    public IMovie getMovie() {
-        return movie;
+    public ISeans getSeans() {
+        return seans;
     }
 
-    /**
-     * Геттер цены билета
-     * @return возвращает цену билета в $ без центов
-     */
-    @Override
-    public int getPrice() {
-        return price;
-    }
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
 
 }

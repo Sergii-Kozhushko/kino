@@ -5,7 +5,7 @@
  * Date of creation: 09-Jan-2023 20:06
  */
 
-package de.javabegin.kino.classes;
+package de.javabegin.kino.impl;
 
 import de.javabegin.kino.interfaces.ITicket;
 import de.javabegin.kino.interfaces.IUser;
@@ -28,16 +28,10 @@ public class User implements IUser {
    /** поле имя покупателя*/
    private String name;
    /** поле сумма денег у покупателя */
-   private int money = 0;
-   /** список билекто, которые купил покупатель */
+   private int money;
+   /** список билетов, которые купил покупатель */
    private ArrayList<ITicket> ticketList = new ArrayList<>();
 
-   public User(String name) {
-      this.name = name;
-   }
-
-   public User() {
-   }
 
    /**
     * Конструктор с имененм и начальной суммой
@@ -61,7 +55,7 @@ public class User implements IUser {
 
    /**
     * Метод-сеттер для установки количества денег у покупателя
-    * @param money
+    * @param money - количество денег
     */
    @Override
    public void setMoney(int money) {
@@ -82,8 +76,8 @@ public class User implements IUser {
       System.out.println("Билеты:");
       int i = 1; // нумерация билетов
       for (ITicket ticket: ticketList){
-         if (ticket.getMovie() != null)
-            System.out.println(i + ". " + ticket.getMovie().getName() + " : " + ticket.getMovie().getDate().getTime() + " : " + ticket.getQRCode());
+         if (ticket.getSeans() != null)
+            System.out.println(i + ". " + ticket.getSeans().getMovie().getName() + ", " + ticket.getSeans().getDateTime().getTime() + ", " + ticket.getQRCode());
          i++;
       }
 
