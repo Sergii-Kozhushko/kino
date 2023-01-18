@@ -12,31 +12,31 @@ import de.javabegin.kino.interfaces.IUser;
 
 import java.util.ArrayList;
 
-/** Класс отвечает за сущность "покупатель билета в кино"
+/** РљР»Р°СЃСЃ РѕС‚РІРµС‡Р°РµС‚ Р·Р° СЃСѓС‰РЅРѕСЃС‚СЊ "РїРѕРєСѓРїР°С‚РµР»СЊ Р±РёР»РµС‚Р° РІ РєРёРЅРѕ"
  * @author Kozhushko Sergii
  * @version 1.0
- * Класс реализует интерфейс IUser -> разделение абстракция-реализация
- * Соответствует принципам SOLID:
- * 1. Single Responsibility Principle: класс работает только с сущностиями, относящимися к покупателю: имя, деньги в кошельке, список билетов пользователя
- * 2. Open Closed Principle: соответствует не на 100%. Возможно лучший вариант: сделать класс User (name, money) и от него наследовать UserKino(+ticketlist)
- * 5. Dependency Inversion Principle (Принцип инверсии зависимостей): класс зависит от интрефейса ITicket, а не от реализации Ticket
+ * РљР»Р°СЃСЃ СЂРµР°Р»РёР·СѓРµС‚ РёРЅС‚РµСЂС„РµР№СЃ IUser -> СЂР°Р·РґРµР»РµРЅРёРµ Р°Р±СЃС‚СЂР°РєС†РёСЏ-СЂРµР°Р»РёР·Р°С†РёСЏ
+ * РЎРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ РїСЂРёРЅС†РёРїР°Рј SOLID:
+ * 1. Single Responsibility Principle: РєР»Р°СЃСЃ СЂР°Р±РѕС‚Р°РµС‚ С‚РѕР»СЊРєРѕ СЃ СЃСѓС‰РЅРѕСЃС‚РёСЏРјРё, РѕС‚РЅРѕСЃСЏС‰РёРјРёСЃСЏ Рє РїРѕРєСѓРїР°С‚РµР»СЋ: РёРјСЏ, РґРµРЅСЊРіРё РІ РєРѕС€РµР»СЊРєРµ, СЃРїРёСЃРѕРє Р±РёР»РµС‚РѕРІ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+ * 2. Open Closed Principle: СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ РЅРµ РЅР° 100%. Р’РѕР·РјРѕР¶РЅРѕ Р»СѓС‡С€РёР№ РІР°СЂРёР°РЅС‚: СЃРґРµР»Р°С‚СЊ РєР»Р°СЃСЃ User (name, money) Рё РѕС‚ РЅРµРіРѕ РЅР°СЃР»РµРґРѕРІР°С‚СЊ UserKino(+ticketlist)
+ * 5. Dependency Inversion Principle (РџСЂРёРЅС†РёРї РёРЅРІРµСЂСЃРёРё Р·Р°РІРёСЃРёРјРѕСЃС‚РµР№): РєР»Р°СЃСЃ Р·Р°РІРёСЃРёС‚ РѕС‚ РёРЅС‚СЂРµС„РµР№СЃР° ITicket, Р° РЅРµ РѕС‚ СЂРµР°Р»РёР·Р°С†РёРё Ticket
  * GRASP:
- * Polymorphism - поля имеют общий интерфейсыный тип, список билетов
+ * Polymorphism - РїРѕР»СЏ РёРјРµСЋС‚ РѕР±С‰РёР№ РёРЅС‚РµСЂС„РµР№СЃС‹РЅС‹Р№ С‚РёРї, СЃРїРёСЃРѕРє Р±РёР»РµС‚РѕРІ
  */
-//  уровень реализации
+//  СѓСЂРѕРІРµРЅСЊ СЂРµР°Р»РёР·Р°С†РёРё
 public class User implements IUser {
-   /** поле имя покупателя*/
+   /** РїРѕР»Рµ РёРјСЏ РїРѕРєСѓРїР°С‚РµР»СЏ*/
    private String name;
-   /** поле сумма денег у покупателя */
+   /** РїРѕР»Рµ СЃСѓРјРјР° РґРµРЅРµРі Сѓ РїРѕРєСѓРїР°С‚РµР»СЏ */
    private int money;
-   /** список билетов, которые купил покупатель */
+   /** СЃРїРёСЃРѕРє Р±РёР»РµС‚РѕРІ, РєРѕС‚РѕСЂС‹Рµ РєСѓРїРёР» РїРѕРєСѓРїР°С‚РµР»СЊ */
    private ArrayList<ITicket> ticketList = new ArrayList<>();
 
 
    /**
-    * Конструктор с имененм и начальной суммой
-    * @param name - имя покупателя
-    * @param money - начальная сумма в кошельке
+    * РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РёРјРµРЅРµРЅРј Рё РЅР°С‡Р°Р»СЊРЅРѕР№ СЃСѓРјРјРѕР№
+    * @param name - РёРјСЏ РїРѕРєСѓРїР°С‚РµР»СЏ
+    * @param money - РЅР°С‡Р°Р»СЊРЅР°СЏ СЃСѓРјРјР° РІ РєРѕС€РµР»СЊРєРµ
     */
    public User(String name, int money) {
       this.name = name;
@@ -54,8 +54,8 @@ public class User implements IUser {
    }
 
    /**
-    * Метод-сеттер для установки количества денег у покупателя
-    * @param money - количество денег
+    * РњРµС‚РѕРґ-СЃРµС‚С‚РµСЂ РґР»СЏ СѓСЃС‚Р°РЅРѕРІРєРё РєРѕР»РёС‡РµСЃС‚РІР° РґРµРЅРµРі Сѓ РїРѕРєСѓРїР°С‚РµР»СЏ
+    * @param money - РєРѕР»РёС‡РµСЃС‚РІРѕ РґРµРЅРµРі
     */
    @Override
    public void setMoney(int money) {
@@ -68,16 +68,16 @@ public class User implements IUser {
    }
 
    /**
-    * Метод распечатывает список билетов у покупателя
+    * РњРµС‚РѕРґ СЂР°СЃРїРµС‡Р°С‚С‹РІР°РµС‚ СЃРїРёСЃРѕРє Р±РёР»РµС‚РѕРІ Сѓ РїРѕРєСѓРїР°С‚РµР»СЏ
     */
    @Override
    public void printTickets() {
-      System.out.println("Покупатель <" + name + ">");
-      System.out.println("Билеты:");
-      int i = 1; // нумерация билетов
+      System.out.println("Customer <" + name + ">");
+      System.out.println("Tickets:");
+      int i = 1; // РЅСѓРјРµСЂР°С†РёСЏ Р±РёР»РµС‚РѕРІ
       for (ITicket ticket: ticketList){
          if (ticket.getSeans() != null)
-            System.out.println(i + ". Кинотеатр '" + ticket.getKinoTheatherName() + "', " + ticket.getSeans().getMovie().getName() + ", " + ticket.getSeans().getDateTime().getTime() + ", " + ticket.getQRCode());
+            System.out.println(i + ". Movie thather '" + ticket.getKinoTheatherName() + "', " + ticket.getSeans().getMovie().getName() + ", " + ticket.getSeans().getDateTime().getTime() + ", " + ticket.getQRCode());
          i++;
       }
 

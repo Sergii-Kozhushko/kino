@@ -10,14 +10,14 @@ import java.util.GregorianCalendar;
 
 public class Main {
     public static void main(String[] args) {
-        IUser user1 = new User("Ваня Кожушко", 90);
+        IUser user1 = new User("Ivan Kozhushko", 90);
 
         //TicketManager ticketManager = new TicketManager();
-        KinoTheather zorya = new KinoTheather("Зоря");
-        KinoTheather sputnik = new KinoTheather("Спутник");
-        IMovie movie1 = new Movie("Человек-Паук-12");
-        IMovie movie2 = new Movie("Матрица");
-        IMovie movie3 = new Movie("Титаник");
+        KinoTheather zorya = new KinoTheather("Zorya");
+        KinoTheather sputnik = new KinoTheather("Sputnik");
+        IMovie movie1 = new Movie("Spiderman-12");
+        IMovie movie2 = new Movie("РњР°С‚СЂРёС†Р°");
+        IMovie movie3 = new Movie("РўРёС‚Р°РЅРёРє");
 
         ISeans seans1 = new Seans(zorya, movie1, new GregorianCalendar(2023, Calendar.JANUARY, 23, 18, 0),20);
         ISeans seans2 = new Seans(zorya,  movie1, new GregorianCalendar(2023, Calendar.JANUARY, 23, 16, 0),20);
