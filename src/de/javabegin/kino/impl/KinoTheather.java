@@ -24,7 +24,7 @@ public class KinoTheather implements IKinoTheather {
             user.setMoney(user.getMoney() - seans.getPrice());
         }
         else{
-            System.out.println("Не хватат денег на билет");
+            System.out.println("Не хватат денег на билет. Сеанс " + seans.getMovie().getName());
         }
 
     }

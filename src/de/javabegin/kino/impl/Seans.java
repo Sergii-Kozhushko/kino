@@ -7,6 +7,7 @@
 
 package de.javabegin.kino.impl;
 
+import de.javabegin.kino.interfaces.IKinoTheather;
 import de.javabegin.kino.interfaces.IMovie;
 import de.javabegin.kino.interfaces.ISeans;
 
@@ -17,6 +18,10 @@ import java.util.Calendar;
  * @version 1.0
  */
 public class Seans implements ISeans {
+   /**
+    * Кинотеатр
+    */
+   private IKinoTheather kinoTheather;
    /**
     * Фильм сеанса
     */
@@ -32,10 +37,18 @@ public class Seans implements ISeans {
     */
    private int price;
 
-   public Seans(IMovie movie, Calendar dateTime, int price) {
+
+   public Seans(IKinoTheather kinoTheather, IMovie movie, Calendar dateTime, int price) {
+      this.kinoTheather = kinoTheather;
       this.movie = movie;
       this.dateTime = dateTime;
       this.price = price;
+      kinoTheather.addSeans(this);
+   }
+
+   @Override
+   public IKinoTheather getKinoTheather() {
+      return kinoTheather;
    }
 
    @Override

@@ -77,7 +77,7 @@ public class User implements IUser {
       int i = 1; // нумерация билетов
       for (ITicket ticket: ticketList){
          if (ticket.getSeans() != null)
-            System.out.println(i + ". " + ticket.getSeans().getMovie().getName() + ", " + ticket.getSeans().getDateTime().getTime() + ", " + ticket.getQRCode());
+            System.out.println(i + ". Кинотеатр '" + ticket.getKinoTheatherName() + "', " + ticket.getSeans().getMovie().getName() + ", " + ticket.getSeans().getDateTime().getTime() + ", " + ticket.getQRCode());
          i++;
       }
 

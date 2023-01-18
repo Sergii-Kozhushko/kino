@@ -5,4 +5,5 @@ public interface ITicket {
     String getQRCode();
 
     ISeans getSeans();
+    String getKinoTheatherName();
 }

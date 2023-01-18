@@ -55,6 +55,10 @@ public class Ticket implements ITicket {
         return seans;
     }
 
+    public String getKinoTheatherName(){
+        return getSeans().getKinoTheather().getName();
+    }
+
 
 
 }
