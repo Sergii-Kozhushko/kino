@@ -26,11 +26,11 @@ public class Main {
         ISeans seans5 = new Seans(sputnik, movie3, new GregorianCalendar(2023, Calendar.FEBRUARY, 1, 19, 30), 30);
 
 
-//        zorya.addSeans(seans1);
-//        zorya.addSeans(seans2);
-//        zorya.addSeans(seans3);
-//        zorya.addSeans(seans4);
-//        zorya.addSeans(seans5);
+        zorya.addSeans(seans1);
+        zorya.addSeans(seans2);
+        zorya.addSeans(seans3);
+        zorya.addSeans(seans4);
+        zorya.addSeans(seans5);
 
         zorya.buyTicket(user1, seans1);
         zorya.buyTicket(user1, seans3);

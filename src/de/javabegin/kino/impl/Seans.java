@@ -43,7 +43,7 @@ public class Seans implements ISeans {
       this.movie = movie;
       this.dateTime = dateTime;
       this.price = price;
-      kinoTheather.addSeans(this);
+
    }
 
    @Override
