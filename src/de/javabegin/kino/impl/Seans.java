@@ -37,6 +37,7 @@ public class Seans implements ISeans {
     */
    private int price;
 
+   // TODO желательно также оставлять и пустой конструктор
 
    public Seans(IKinoTheather kinoTheather, IMovie movie, Calendar dateTime, int price) {
       this.kinoTheather = kinoTheather;
@@ -65,4 +66,6 @@ public class Seans implements ISeans {
    public int getPrice() {
       return price;
    }
+
+   // TODO добавить сеттеры (в других классах тоже)
 }

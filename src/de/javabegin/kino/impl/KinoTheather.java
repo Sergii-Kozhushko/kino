@@ -17,6 +17,7 @@ public class KinoTheather implements IKinoTheather {
     private ArrayList<ISeans> seansList = new ArrayList<>();
     private String name;
 
+    // TODO если этот метод будет внутри кинотеатра, то логичней его назвать sell (продажа), а не покупка
     public void buyTicket(IUser user, ISeans seans) {
         if (user.getMoney() > seans.getPrice()) {
             Ticket t = new Ticket(seans);
