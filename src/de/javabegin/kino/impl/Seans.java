@@ -19,7 +19,7 @@ import java.util.Calendar;
  */
 public class Seans implements ISeans {
    /**
-    * Кинотеатр
+    * Кинотеатр, в котором идет сеанс
     */
    private IKinoTheather kinoTheather;
    /**
@@ -39,6 +39,10 @@ public class Seans implements ISeans {
 
    // TODO желательно также оставлять и пустой конструктор
 
+
+   public Seans() {
+   }
+
    public Seans(IKinoTheather kinoTheather, IMovie movie, Calendar dateTime, int price) {
       this.kinoTheather = kinoTheather;
       this.movie = movie;
@@ -52,9 +56,17 @@ public class Seans implements ISeans {
       return kinoTheather;
    }
 
+   public void setKinoTheather(IKinoTheather kinoTheather) {
+      this.kinoTheather = kinoTheather;
+   }
+
    @Override
    public IMovie getMovie() {
       return movie;
+   }
+
+   public void setMovie(IMovie movie) {
+      this.movie = movie;
    }
 
    @Override
@@ -62,9 +74,17 @@ public class Seans implements ISeans {
       return dateTime;
    }
 
+   public void setDateTime(Calendar dateTime) {
+      this.dateTime = dateTime;
+   }
+
    @Override
    public int getPrice() {
       return price;
+   }
+
+   public void setPrice(int price) {
+      this.price = price;
    }
 
    // TODO добавить сеттеры (в других классах тоже)

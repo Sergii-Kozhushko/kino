@@ -15,6 +15,9 @@ public class Movie implements IMovie  {
    //private Calendar date;
 
 
+   public Movie() {
+   }
+
    public Movie(String name) {
       this.name = name;
    }
@@ -24,4 +27,7 @@ public class Movie implements IMovie  {
       return name;
    }
 
+   public void setName(String name) {
+      this.name = name;
+   }
 }

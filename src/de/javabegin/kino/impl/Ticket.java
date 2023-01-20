@@ -29,8 +29,10 @@ public class Ticket implements ITicket {
     /** поле фильм*/
     private ISeans seans;
 
+    public Ticket() {
+    }
+
     /**
-     *
      * @param seans - на какой сеанс этот билет
      */
     public Ticket(ISeans seans) {
@@ -46,6 +48,7 @@ public class Ticket implements ITicket {
         return QRCode;
     }
 
+
     /**
      * Метод получения фильм билета
      * @return Сеанс
@@ -55,6 +58,14 @@ public class Ticket implements ITicket {
         return seans;
     }
 
+    public void setSeans(ISeans seans) {
+        this.seans = seans;
+    }
+
+    /**
+    *Добавил этот метод для укороченной формы записи
+     * Это не чистый геттер
+     */
     public String getKinoTheatherName(){
         return getSeans().getKinoTheather().getName();
     }

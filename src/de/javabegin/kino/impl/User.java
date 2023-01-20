@@ -33,12 +33,15 @@ public class User implements IUser {
    private ArrayList<ITicket> ticketList = new ArrayList<>();
 
 
+   public User() {
+   }
+
    /**
     * Конструктор с имененм и начальной суммой
     * @param name - имя покупателя
     * @param money - начальная сумма в кошельке
     */
-   public User(String name, int money) {
+      public User(String name, int money) {
       this.name = name;
       this.money = money;
    }
@@ -46,6 +49,10 @@ public class User implements IUser {
    @Override
    public String getName() {
       return name;
+   }
+
+   public void setName(String name) {
+      this.name = name;
    }
 
    @Override
@@ -65,6 +72,10 @@ public class User implements IUser {
    @Override
    public ArrayList<ITicket> getTicketList() {
       return ticketList;
+   }
+
+   public void setTicketList(ArrayList<ITicket> ticketList) {
+      this.ticketList = ticketList;
    }
 
    /**

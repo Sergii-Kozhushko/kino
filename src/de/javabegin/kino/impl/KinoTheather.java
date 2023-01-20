@@ -17,19 +17,9 @@ public class KinoTheather implements IKinoTheather {
     private ArrayList<ISeans> seansList = new ArrayList<>();
     private String name;
 
-    // TODO если этот метод будет внутри кинотеатра, то логичней его назвать sell (продажа), а не покупка
-    public void buyTicket(IUser user, ISeans seans) {
-        if (user.getMoney() > seans.getPrice()) {
-            Ticket t = new Ticket(seans);
-            user.getTicketList().add(t);
-            user.setMoney(user.getMoney() - seans.getPrice());
-        }
-        else{
-            System.out.println("Не хватат денег на билет. Сеанс " + seans.getMovie().getName());
-        }
 
+    public KinoTheather() {
     }
-
 
     public KinoTheather(ArrayList<ISeans> seansList, String name) {
         this.seansList = seansList;
@@ -40,9 +30,25 @@ public class KinoTheather implements IKinoTheather {
         this.name = name;
     }
 
+    // TODO если этот метод будет внутри кинотеатра, то логичней его назвать sell (продажа), а не покупка
+    public void sellTicket(IUser user, ISeans seans) {
+        if (user.getMoney() > seans.getPrice()) {
+            Ticket t = new Ticket(seans);
+            user.getTicketList().add(t);
+            user.setMoney(user.getMoney() - seans.getPrice());
+        }
+        else{
+            System.out.println("Не хватат денег на билет. Сеанс " + seans.getMovie().getName());
+        }
+
+    }
     @Override
     public ArrayList<ISeans> getSeansList() {
         return seansList;
+    }
+
+    public void setSeansList(ArrayList<ISeans> seansList) {
+        this.seansList = seansList;
     }
 
     public void addSeans(ISeans seans){
@@ -52,5 +58,9 @@ public class KinoTheather implements IKinoTheather {
     @Override
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

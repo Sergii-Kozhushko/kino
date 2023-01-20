@@ -32,9 +32,9 @@ public class Main {
         zorya.addSeans(seans4);
         zorya.addSeans(seans5);
 
-        zorya.buyTicket(user1, seans1);
-        zorya.buyTicket(user1, seans3);
-        sputnik.buyTicket(user1, seans5);
+        zorya.sellTicket(user1, seans1);
+        zorya.sellTicket(user1, seans3);
+        sputnik.sellTicket(user1, seans5);
         user1.printTickets();
 
 
