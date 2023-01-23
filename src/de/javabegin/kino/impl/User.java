@@ -64,7 +64,7 @@ public class User implements IUser {
     * Метод-сеттер для установки количества денег у покупателя
     * @param money - количество денег
     */
-   @Override
+
    public void setMoney(int money) {
       this.money = money;
    }

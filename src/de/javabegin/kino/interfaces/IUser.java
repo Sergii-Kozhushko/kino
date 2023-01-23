@@ -6,7 +6,8 @@ import java.util.ArrayList;
 public interface IUser {
     String getName();
     int getMoney();
-    void setMoney(int money); // TODO set не нужно добавлять в интерфейс (иначе становится избыточным)
+
+    // TODO set не нужно добавлять в интерфейс (иначе становится избыточным)
     ArrayList<ITicket> getTicketList();
     void printTickets();
 

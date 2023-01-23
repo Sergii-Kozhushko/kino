@@ -7,9 +7,8 @@
 
 package de.javabegin.kino.impl;
 
-import de.javabegin.kino.interfaces.IMovie;
 
-public class Movie implements IMovie  {
+public class Movie {
    //private int price;
    private String name;
    //private Calendar date;
@@ -22,7 +21,7 @@ public class Movie implements IMovie  {
       this.name = name;
    }
 
-   @Override
+
    public String getName() {
       return name;
    }
